@@ -30,7 +30,7 @@ books = db.books #create collections
 # Фильтрация по выбранным параметрам
 print(db.books.distinct('category'))
 
-choosen_category = str(input('Выберите категорию из предложенных: '))
+choosen_category = str(input('Выберите категорию из предложенных выше: '))
 in_stock1,in_stock2 =  map(int, input('Введите значение через запятую: ').split(','))
 filtred = {'$and':[{'in_stock': {'$gt': in_stock1,'$lt': in_stock2}}, {'category': choosen_category}]}
 print(f'Кол-во книг по выбранным параметрам: {books.count_documents(filtred)}')
